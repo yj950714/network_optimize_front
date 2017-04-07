@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link href="img/network.ico" rel="icon">
-
+    <meta name="description" content="">
     <title>Network Optimize Tool</title>
-
+    <link href="img/network.ico" rel="icon">
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -22,124 +20,95 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-		<script src="assets/js/jquery.cookies.js" type="text/javascript" charset="utf-8"></script>
-		<script src="assets/js/common-scripts.js"></script>
-		<script src="js/server.js"></script>
-		<!--common script for all pages-->
-		
   </head>
 
   <body>
-	<!--用户登录判定
-	<script>
-		if (!$.cookie("token")){
-			alert("用户未登录，请返回登录页面");
-      window.location.href = "login.html"
-		}
-	</script>
-	-->
-	
-  <section id="container" >
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-            <a href="index.html" class="logo"><b>Network Optimize Tool</b></a>
-            <!--logo end-->
 
-            <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
-            	</ul>
-            </div>
-        </header>
-      <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <!--头像下用户名-->
-              	  <script>
-              	  	$.cookie("realName", "Admin",{path:"/"});
-              	  	$.cookie("token", "9709e49aa82da38b73898922b3c86466", {path:"/"});
-              	  	document.write("<h5 class=\"centered\">" + $.cookie("realName") + "</h5>");
-              	  </script>
-                  <li class="sub-menu">
-                      <a class="active" href="index.html" >
-                          <i class="fa fa-desktop"></i>
-                          <span>User</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="file.html" >
-                          <i class="fa fa-book"></i>
-                          <span>Files</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="task.html" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Tasks</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
-      
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Blank Page</h3>
-          	<div class="row mt">
-          		<div class="col-lg-12">
-          		<p>Place your content here.</p>
-          		</div>
-          	</div>
-			
-		</section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
+		<script>
+			var keys=document.cookie.match(/[^ =;]+(?=\=)/g); 
+			if (keys) { 
+				for (var i = keys.length; i--;) 
+					document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString() 
+			}
+		</script>
+	  <div id="login-page">
+	  	<div class="container">
+	  	
+		      <form class="form-login">
+		        <h2 class="form-login-heading">sign in now</h2>
+		        <div class="login-wrap">
+		            <input id="userName" class="form-control" placeholder="User ID" autofocus>
+		            <br>
+		            <input id="password" type="password" class="form-control" placeholder="Password">
+		            <label class="checkbox">
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="index.html#myModal"> Forgot Password?</a>
+		
+		                </span>
+		            </label>
+		            <button class="btn btn-theme btn-block" type="submit" id="login_button"><i class="fa fa-lock"></i> SIGN IN</button>
+		            <hr>
+		            
+		            <div class="registration">
+		                Don't have an account yet?<br/>
+		                <a class="" href="#">
+		                    Create an account
+		                </a>
+		            </div>
+		
+		        </div>
+		
+		          <!-- Modal -->
+		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+		              <div class="modal-dialog">
+		                  <div class="modal-content">
+		                      <div class="modal-header">
+		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                          <h4 class="modal-title">Forgot Password ?</h4>
+		                      </div>
+		                      <div class="modal-body">
+		                          <p>Enter your e-mail address below to reset your password.</p>
+		                          <input id="email" type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		
+		                      </div>
+		                      <div class="modal-footer">
+		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+		                          <button id="resetPassword_button" class="btn btn-theme" type="button">Submit</button>
+		                      </div>
+		                  </div>
+		              </div>
+		          </div>
+		          <!-- modal -->
+		
+		      </form>	  	
+	  	
+	  	</div>
+	  </div>
 
-      <!--main content end-->
-      <footer class="site-footer">
-          <div class="text-center">
-          	  © 2017 Jay. All Rights Reserved 
-          </div>
-      </footer>
-      <!--footer end-->
-  </section>
-    
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
-
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script src="assets/js/jquery.cookies.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="js/server.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script>
+        $.backstretch("assets/img/login-bg.jpg", {speed: 1000});
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#login_button").mousedown(function(){ 
+               login(); 
+            }); 
+            $("#resetPassword_button").mousedown(function(){
+               forgetPassword(); 
+            });
+        }); 	
+    </script>
   </body>
 </html>

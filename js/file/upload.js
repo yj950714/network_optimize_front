@@ -22,7 +22,7 @@ $(function(){
 				else{
 					if (response["errorCode"] == 20002){
 						alert("登录已失效，请重新登录");
-						window.location.href = "login.html";
+						window.location.href = "index.html";
 					}
 					else {
 						alert(response["errorInfo"]);

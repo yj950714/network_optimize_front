@@ -21,7 +21,7 @@ function login(){
         else{
             $.cookie("token", jsons["token"], {path:"/"});
             $.cookie("realName", jsons["realName"], {path:"/"});
-            window.location.href = "index.html"
+            window.location.href = "user.html"
         }
     }
     function errFunction(response){

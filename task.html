@@ -38,14 +38,14 @@
   </head>
 
   <body>
-	<!--用户登录判定
+	<!--用户登录判定-->
 	<script>
 		if (!$.cookie("token")){
 			alert("用户未登录，请返回登录页面");
-      window.location.href = "login.html"
+      window.location.href = "index.html"
 		}
 	</script>
-	-->
+	
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -56,12 +56,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Network Optimize Tool</b></a>
+            <a href="user.html" class="logo"><b>Network Optimize Tool</b></a>
             <!--logo end-->
 
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="index.html">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -82,7 +82,7 @@
               	  	document.write("<h5 class=\"centered\">" + $.cookie("realName") + "</h5>");
               	  </script>
                   <li class="sub-menu">
-                      <a href="index.html" >
+                      <a href="user.html" >
                           <i class="fa fa-desktop"></i>
                           <span>User</span>
                       </a>

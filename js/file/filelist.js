@@ -14,7 +14,7 @@ function getfilelist(){
         }
         else if (response["errorCode"] == 20002){
 			alert("登录已失效，请重新登录");
-			window.location.href = "login.html";
+			window.location.href = "index.html";
         }
         else {
         	alert(response["errorInfo"]);
@@ -28,37 +28,49 @@ function getfilelist(){
 function getfiletable(response){
 	//make the data
 	var data = response["data"];
-	nowIndex = 0;
 	//make table head
 	var table = "<table id=\"filetable\" class=\"table table-striped table-advance table-hover\"><thead><tr>";
-	table = table + "<th><i class=\"fa fa-bullhorn\"></i> File Id</th>";
-	table = table + "<th><i class=\"fa fa-question-circle\"></i> File Type</th>";
-	table = table + "<th><i class=\" fa fa-edit\"></i> File Name</th>";
-	table = table + "<th> File Size</th>";
-	table = table + "<th><i class=\" fa fa-edit\"></i> Update Time</th></tr></thead>";
+	table = table + "<th><i class=\"fa fa-bullhorn\"></i> File_Id</th>";
+	table = table + "<th><i class=\"fa fa-question-circle\"></i> File_Type</th>";
+	table = table + "<th><i class=\" fa fa-edit\"></i> File_Name</th>";
+	table = table + "<th> File_Size</th>";
+	table = table + "<th><i class=\" fa fa-edit\"></i> Update_Time</th></tr></thead>";
 	//make table body
 	table = table + "<tbody>";
 	for (var record in data){
-		nowIndex = nowIndex + 1;
-		table = table + getrecord(nowIndex, data[record]);
+		table = table + getrecord(data[record]);
 	}
 	table = table + "</tbody></table>";
-	document.getElementById("testaaaa").innerHTML= table;
+	document.getElementById("filelisttable").innerHTML= table;
+	
 	
 	$('#filetable').Tabledit({
-    	url: 'example.php',
+    	url: server + "/user/files?token=" + $.cookie("token"),
     	autoFocus: true,
+    	restoreButton: false,
     	columns: {
-        	identifier: [0, 'File Id'],
-       		editable: [[2, 'File Name']]
+        	identifier: [0, 'File_Id'],
+       		editable: [[2, 'File_Name']]
+    	},
+    	onSuccess: function(data, textStatus, jqXHR){
+    		if (data["errorCode"] != 0){
+    			if (response["errorCode"] == 20002){
+					alert("登录已失效，请重新登录");
+					window.location.href = "index.html";
+        		}
+    			else {
+    				alert(data["errorInfo"]);
+    			}
+    		}
     	}
 	});
+	
 
 }
 
-function getrecord(Id, fileInfo){
+function getrecord(fileInfo){
 	var record = "<tr>";
-	record = record + "<td> " + Id.toString() + "</td>";
+	record = record + "<td> " + fileInfo.fileIdToUser.toString() + "</td>";
 	record = record + "<td> " + fileInfo.fileTypeName + "</td>";
 	record = record + "<td> " + fileInfo.fileNameToUser + "</td>";
 	record = record + "<td> " + (parseFloat(fileInfo.fileSize)/1024.0).toFixed(2).toString() + "KB </td>";
