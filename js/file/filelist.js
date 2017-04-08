@@ -61,6 +61,8 @@ function getfiletable(response){
     			else {
     				alert(data["errorInfo"]);
     			}
+    		} else {
+    			window.location.reload(true);
     		}
     	}
 	});

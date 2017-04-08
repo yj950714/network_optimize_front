@@ -9,12 +9,13 @@ function login(){
         url: server + "/user/get_token",
         data: JSON.stringify(datas),
         dataType: "json",
+        timeout: 3000,
         contentType:"application/json",
         success: succFunction,
         error : errFunction
     });	
     function succFunction(response){
-        var jsons = eval(response);
+        var jsons = response;
         if (jsons["errorCode"]!==0){
             alert(jsons["errorInfo"]);	
         }
