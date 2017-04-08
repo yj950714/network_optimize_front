@@ -1,4 +1,4 @@
-function login(){
+﻿function login(){
     var userName = $("#userName").val();
     var password = $("#password").val();
     $("#userName").val("");
