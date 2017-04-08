@@ -68,5 +68,5 @@ function clearCookie(){
 
 function logout(){
 	clearCookie();
-	window.location.href = "login.html";
+	window.location.href = "index.html";
 }
