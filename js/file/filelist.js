@@ -34,7 +34,8 @@ function getfiletable(response){
 	table = table + "<th><i class=\"fa fa-question-circle\"></i> File_Type</th>";
 	table = table + "<th><i class=\" fa fa-edit\"></i> File_Name</th>";
 	table = table + "<th> File_Size</th>";
-	table = table + "<th><i class=\" fa fa-edit\"></i> Update_Time</th></tr></thead>";
+	table = table + "<th><i class=\" fa fa-edit\"></i> Update_Time</th>";
+	table = table + "<th> </th></tr></thead>"
 	//make table body
 	table = table + "<tbody>";
 	for (var record in data){
@@ -67,6 +68,17 @@ function getfiletable(response){
     	}
 	});
 	
+	for (var record in data){
+		tr = document.getElementById("filetable").getElementsByTagName("tr");
+		var column_index = parseInt(record) + 1;
+		td = tr[column_index].getElementsByTagName("td")[5];
+		downUrl = server + "/file/download/" + column_index.toString() + "?token=" + $.cookie("token");
+		htmlString = "<a href=\"" + downUrl + "\">";
+		htmlString = htmlString + "<span class=\"label label-success label-mini\">Download</span></a>";
+		
+		td.innerHTML = htmlString;
+	}
+
 
 }
 
@@ -77,6 +89,7 @@ function getrecord(fileInfo){
 	record = record + "<td> " + fileInfo.fileNameToUser + "</td>";
 	record = record + "<td> " + (parseFloat(fileInfo.fileSize)/1024.0).toFixed(2).toString() + "KB </td>";
 	record = record + "<td> " + fileInfo.updateTime + "</td>";
+	record = record + "<td> " + "<span class=\"label label-success label-mini\">Download</span>" + "</td>";
 	record = record + "</tr>";
 	return record;
 }
