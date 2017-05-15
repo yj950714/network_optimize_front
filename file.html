@@ -53,12 +53,12 @@
 
   <body>
 	<!--用户登录判定-->
-	<script>
+	<!--<script>
 		if (!$.cookie("token")){
 			alert("用户未登录，请返回登录页面");
       window.location.href = "index.html"
 		}
-	</script>
+	</script>-->
 	
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
@@ -108,10 +108,15 @@
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="task.html" >
+                      <a href="javascript:;" >
                           <i class="fa fa-tasks"></i>
                           <span>Tasks</span>
                       </a>
+                      <ul class="sub">
+                          <li><a  href="task_one.html">Standard Task One</a></li>
+                          <li><a  href="#">Standard Task Two</a></li>
+                          <li><a  href="#">Standard Task Three</a></li>
+                      </ul>
                   </li>
               </ul>
               <!-- sidebar menu end-->
