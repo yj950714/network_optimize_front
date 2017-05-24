@@ -4,6 +4,7 @@
     $("#userName").val("");
     $("#password").val("");
     var datas = {"userName" : userName, "password" : password};
+    alert("尝试登陆中");
     $.ajax({
         type: "POST",
         url: server + "/user/get_token",

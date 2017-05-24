@@ -89,7 +89,7 @@ function getrecord(fileInfo){
 	record = record + "<td> " + fileInfo.fileNameToUser + "</td>";
 	record = record + "<td> " + (parseFloat(fileInfo.fileSize)/1024.0).toFixed(2).toString() + "KB </td>";
 	record = record + "<td> " + fileInfo.updateTime + "</td>";
-	record = record + "<td> " + "<span class=\"label label-success label-mini\">Download</span>" + "</td>";
+	record = record + "<td> " + "" + "</td>";
 	record = record + "</tr>";
 	return record;
 }
