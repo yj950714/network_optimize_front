@@ -5,7 +5,7 @@ $(function(){
 		multi:true,
 		method:'post',
 		formData:null,
-		fileSizeLimit:51200,
+		fileSizeLimit:65536,
 		showUploadedPercent:true,
 		showUploadedSize:false,
 		removeTimeout:9999999,
