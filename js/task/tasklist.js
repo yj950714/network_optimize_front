@@ -66,7 +66,83 @@ function gettaskrecord(taskInfo){
 	record = record + "<td> " + taskInfo.statusCode + "</td>";
 	record = record + "<td> " + taskInfo.createTime + "</td>"; 
 	record = record + "<td> " + taskInfo.updateTime + "</td>";
-	record = record + "<td> " + "<span class=\"label label-success label-mini\">Download</span>" + "</td>";
+	record = record + "<td>";
+	if (taskInfo.status == 10){
+		record = record + "<button onclick=\"javascript:starttask(" + taskInfo.id.toString() + ");\" class=\"btn btn-success  btn-sm\"><i class=\" fa fa-check\">Start</i></button>";
+	}
+	if (taskInfo.status == 10){
+		record = record + "<button onclick=\"javascript:setCookie(" + taskInfo.id.toString() + ");\" class=\"btn btn-info  btn-sm\" data-toggle=\"modal\" data-target=\"#changeTaskModal\"><i class=\"fa fa-pencil\">Info</i></button>";
+	}
+	if (taskInfo.status == 40){
+		record = record + "<button class=\"btn btn-warning  btn-sm\"><i class=\"fa fa-pencil\">Error</i></button>";
+	}
+	if (taskInfo.status !== 20){
+		record = record + "<button onclick=\"javascript:deletetask(" + taskInfo.id.toString() + ");\"class=\"btn btn-danger  btn-sm\"><i class=\"fa fa-trash-o \">Delete</i></button>";
+	}
+	record = record + "</td>";
 	record = record + "</tr>";
 	return record;
+}
+
+
+function starttask(taskId){
+	$.ajax({
+		type:"GET",
+		url: server + "/tasks/start/" + taskId.toString() + "?token=" + $.cookie("token"),
+		async:true,
+		data: null,
+        dataType: "json",
+        contentType:"application/json",
+        success: succFunction,
+        error : errFunction
+    });
+	function succFunction(response){
+        if (response["errorCode"]==0){
+            alert("任务开始运行");
+            window.location.reload(true);
+        }
+        else if (response["errorCode"] == 20002){
+			alert("登录已失效，请重新登录");
+			window.location.href = "index.html";
+        }
+        else {
+        	alert(response["errorInfo"]);
+        }
+    }
+    function errFunction(response){
+        alert("开始任务失败");
+    }
+}
+
+function deletetask(taskId){
+	$.ajax({
+		type:"DELETE",
+		url: server + "/tasks/delete/" + taskId.toString() + "?token=" + $.cookie("token"),
+		async:true,
+		data: null,
+        dataType: "json",
+        contentType:"application/json",
+        success: succFunction,
+        error : errFunction
+    });
+	function succFunction(response){
+        if (response["errorCode"]==0){
+            alert("任务已删除");
+            window.location.reload(true);
+        }
+        else if (response["errorCode"] == 20002){
+			alert("登录已失效，请重新登录");
+			window.location.href = "index.html";
+        }
+        else {
+        	alert(response["errorInfo"]);
+        }
+    }
+    function errFunction(response){
+        alert("删除任务失败");
+    }
+}
+
+function setCookie(taskId){
+	$.cookie("task_now", taskId, {path:"/"});
 }
