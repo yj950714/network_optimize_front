@@ -1,7 +1,7 @@
 $(function(){
 	$('#uploadFiles').Huploadify({
 		auto:false,
-		fileTypeExts:'*.jpg;*.png;*.exe;*.pdf;*.exp',
+		fileTypeExts:'*.jpg;*.png;*.exe;*.pdf;*.exp;*.reg;*.xml;*.mix',
 		multi:true,
 		method:'post',
 		formData:null,

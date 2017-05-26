@@ -148,13 +148,9 @@
                               		<script>getdropdownmenu(9, "metabolicnetworkdatamenu")</script>
                               </div>
                           </div>
+                          <input id="addIntegretedTask" type="button" value="创建任务" class="btn btn-primary btn-lg btn-block">
                       </form>
                   	</div>
-						      </div>
-						      <!--modal Footer-->
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Save changes</button>
 						      </div>
 						    </div>
 						  </div>
@@ -186,13 +182,9 @@
                               		<script>getdropdownmenu(9, "metabolicnetworkdatachangemenu")</script>
                               </div>
                           </div>
+                          <input type="button" id="changeIntegretedTask" value="修改任务属性" class="btn btn-primary btn-lg btn-block">
                       </form>
                   	</div>
-						      </div>
-						      <!--modal Footer-->
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Save changes</button>
 						      </div>
 						    </div>
 						  </div>
@@ -234,7 +226,14 @@
     
   <script>
       //custom select box
-
+			$(document).ready(function(){
+            $("#addIntegretedTask").mousedown(function(){ 
+               addintegretedtask(); 
+            }); 
+            $("#changeIntegretedTask").mousedown(function(){ 
+               changeintegretedtask()(); 
+            }); 
+			});
       $(function(){
           $('select.styled').customSelect();
       });

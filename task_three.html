@@ -142,7 +142,7 @@
                               		<script>getdropdownmenu(10, "mixnetworkmenu")</script>
                               </div>
                           </div>
-                          <input type="submit" value="创建任务" class="btn btn-primary btn-lg btn-block">
+                          <input id="addOptimizeTask" type="button" value="创建任务" class="btn btn-primary btn-lg btn-block">
                       </form>
                   	</div>
 						      </div>
@@ -170,7 +170,7 @@
                               		<script>getdropdownmenu(10, "mixnetworkchangemenu")</script>
                               </div>
                           </div>
-                      <input type="submit" value="修改任务" class="btn btn-primary btn-lg btn-block">
+                      <input id="changeOptimizeTask" type="button" value="修改任务" class="btn btn-primary btn-lg btn-block">
                       </form>
                   	</div>
 						      </div>
@@ -214,7 +214,14 @@
     
   <script>
       //custom select box
-
+			$(document).ready(function(){
+            $("#addOptimizeTask").mousedown(function(){ 
+               addoptimizetask(); 
+            }); 
+            $("#changeOptimizeTask").mousedown(function(){ 
+               changeoptimizetask(); 
+            }); 
+			});
       $(function(){
           $('select.styled').customSelect();
       });

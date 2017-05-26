@@ -140,7 +140,7 @@
                               		<script>getdropdownmenu(7, "expressiondatamenu")</script>
                               </div>
                           </div>
-                          <input type="submit" value="创建任务" class="btn btn-primary btn-lg btn-block">
+                          <input id="addInferenceTask" type="button" value="创建任务" class="btn btn-primary btn-lg btn-block">
                       </form>
                   	</div>
 						      </div>
@@ -169,7 +169,7 @@
                               		<script>getdropdownmenu(7, "expressiondatachangemenu")</script>
                               </div>
                           </div>
-                          <input type="submit" value="修改任务属性" class="btn btn-primary btn-lg btn-block">
+                          <input type="button" id="changeInferenceTask" value="修改任务属性" class="btn btn-primary btn-lg btn-block">
                       </form>
                   	</div>
 						      </div>
@@ -214,7 +214,14 @@
     
   <script>
       //custom select box
-
+			$(document).ready(function(){
+            $("#addInferenceTask").mousedown(function(){ 
+               addtrninferencetask(); 
+            }); 
+            $("#changeInferenceTask").mousedown(function(){ 
+               changetrninferencetask(); 
+            }); 
+			});
       $(function(){
           $('select.styled').customSelect();
       });
